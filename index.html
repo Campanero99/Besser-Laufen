@@ -18,15 +18,16 @@
             <p class="text-center text-gray-600 text-lg">Professionelles Lauftraining</p>
         </div>
 
-        <!-- Tabs -->
-        <div class="bg-white rounded-2xl shadow-xl mb-6 p-2">
-            <div class="flex gap-2 flex-wrap">
-                <button onclick="changeTab('hf')" id="tab-hf" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-active">HF</button>
-                <button onclick="changeTab('zeiten')" id="tab-zeiten" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Zeiten</button>
-                <button onclick="changeTab('tempos')" id="tab-tempos" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Tempos</button>
-                <button onclick="changeTab('plan')" id="tab-plan" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Plan</button>
-            </div>
-        </div>
+      <!-- Tabs -->
+<div class="bg-white rounded-2xl shadow-xl mb-6 p-2">
+    <div class="flex gap-2 flex-wrap">
+        <button onclick="changeTab('hf')" id="tab-hf" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-active">HF</button>
+        <button onclick="changeTab('zeiten')" id="tab-zeiten" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Zeiten</button>
+        <button onclick="changeTab('tempos')" id="tab-tempos" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Tempos</button>
+        <button onclick="changeTab('plan')" id="tab-plan" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Plan</button>
+        <button onclick="changeTab('empfehlungen')" id="tab-empfehlungen" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Tipps</button>
+    </div>
+</div>
 
         <!-- HF Content -->
         <div id="content-hf">
@@ -91,7 +92,154 @@
         </div>
 
         <!-- Plan Content -->
-        <div id="content-plan" class="hidden">
+        <!-- Empfehlungen Content -->
+<div id="content-empfehlungen" class="hidden">
+    <div class="bg-white rounded-2xl shadow-xl p-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center">
+            Überlegungen und Empfehlungen zur Marathon-Vorbereitung
+        </h2>
+        <p class="text-center text-lg text-indigo-600 font-semibold mb-8">
+            Von Manolo "El Campanero"
+        </p>
+
+        <div class="bg-gradient-to-r from-indigo-50 to-blue-50 p-6 rounded-xl mb-8 border-l-4 border-indigo-500">
+            <p class="text-gray-700 leading-relaxed italic">
+                Einen Marathon zu laufen bedeutet nicht nur 42,195 Kilometer zurückzulegen: Es ist ein physiologischer, mentaler und emotionaler Transformationsprozess, der bei jedem, der ihn erlebt, tiefe Spuren hinterlässt. In über 45 Jahren Laufsport, mit 28 absolvierten Marathons und einer persönlichen Bestzeit unter 2h19', habe ich gelernt, dass der Erfolg auf dieser Distanz aus der exakten Kombination von Wissenschaft, Beständigkeit und Leidenschaft entsteht.
+            </p>
+        </div>
+
+        <div class="space-y-6 max-h-[600px] overflow-y-auto pr-4">
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">1. Die Entscheidung: Warum ein Marathon?</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Der Marathon ist im Trend, aber er ist keine Mode. Es ist eine ernsthafte Entscheidung, die sportliche Reife erfordert. Bevor man ihn in Angriff nimmt, ist es ratsam, mindestens zwei Jahre regelmäßig zu laufen und an 10-km- und Halbmarathon-Wettkämpfen teilgenommen zu haben. Die Vorbereitung auf einen Marathon bedeutet, dein Leben neu zu organisieren: Zeitpläne, Erholung, Ernährung und Prioritäten.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">2. Gesundheit: Die Basis der Leistung</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Bevor du mit der Vorbereitung beginnst, führe eine vollständige ärztliche Untersuchung durch. Ein Elektrokardiogramm, ein Belastungstest und ein Basisblutbild sind unverzichtbare Werkzeuge für ein sicheres Training. Gesundheit ist nicht verhandelbar: Ohne sie gibt es keine Leistung, keinen Genuss und keinen Marathon.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">3. Planung: Wochen und Struktur</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    8 bis 11 Wochen spezifisches Training sind normalerweise ausreichend, wenn eine gute Grundlage vorhanden ist. Der Schlüssel liegt in der Progression: Umfang und Intensität kontrolliert steigern und dabei die Prinzipien von Belastung, Erholung und Anpassung beachten.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">4. Trainingsumgebung: Ort und Gesellschaft</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Trainiere auf bekannten Strecken in der Nähe deines Zuhauses, die die Logistik und Kontrolle des Trainings erleichtern. Trainiere wann immer möglich in Begleitung: Die Gruppe gibt an schwierigen Tagen Halt und vervielfacht die Motivation. Der Marathon wird allein gelaufen, aber besser im Team vorbereitet.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">5. Realistisches Ziel: Viel mehr als nur eine Zeit</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Beim ersten Marathon ist das Hauptziel, stark und unversehrt ins Ziel zu kommen. Die Zeit wird als Folge guter Arbeit kommen. Die Ziellinie zum ersten Mal zu überqueren ist eine schwer zu beschreibende emotionale Erfahrung: Tränen, Stolz, innere Stille und die tiefe Gewissheit, alles gegeben zu haben.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">6. Trainingsmethodik</h3>
+                <p class="text-gray-700 leading-relaxed mb-3">Kombiniere drei grundlegende Säulen:</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                    <li>Aerobes Volumen (lockere und lange Läufe) zum Aufbau der physiologischen Basis.</li>
+                    <li>Marathontempo zur Optimierung der Laufökonomie und Toleranz der spezifischen Belastung.</li>
+                    <li>Qualitätsarbeit (Tempowechsel, intensive Läufe, Steigerungen, Berge) zur Verbesserung der VO₂max und der aeroben Schwelle.</li>
+                </ul>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">7. Tempos und Wochenumfang</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Der Hobbyläufer sollte zwischen 60 und 70 km pro Woche laufen, angepasst an sein Niveau. Die Tempos sollten überwiegend aerob sein (Zone 2–3), wo die echte Ausdauer aufgebaut wird. Langsam zu trainieren ist keine Zeitverschwendung: Es ist eine Investition in die Zukunft.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">8. Intensitätskontrolle: Pulsmesser und Empfindungen</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Deine maximale Herzfrequenz und aerobe Schwelle zu kennen, ermöglicht präzises Training. Technologie ist nützlich, aber vergiss nicht, auf deinen Körper zu hören: Müdigkeit, Erholung und Emotionen sind ebenfalls Daten.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">9. Der lange Lauf: Das Marathon-Labor</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Der lange Lauf ist das wichtigste Training. Führe ihn sonntagmorgens durch und simuliere dabei den Wettkampf. Hier werden Stoffwechsel, Geist und Geduld trainiert.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">10. Zeit besser als Kilometer</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Für die meisten Läufer ist das Training nach Zeit effektiver: 2h15'–3h00' kontinuierliches Laufen entwickelt die Anpassungen besser als eine starre Kilometerzahl.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">11. Metabolische Anpassung: Nüchterntraining</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Den langen Lauf nüchtern zu laufen, bei 70–72% der maximalen HF, verbessert die Fettverbrennung und spart Glykogen. Dieser Prozess ist entscheidend, um die gefürchtete "Mauer bei km 30" zu vermeiden.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">12. Erholung: Wiederaufbau zum erneuten Wachstum</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Nichts passt sich ohne Erholung an. Nach dem langen Lauf fülle Kohlenhydrate und hochwertige Proteine auf: Hafer, reifes Obst, gekochte Kartoffeln, Vollkornreis. Jede Mahlzeit ist eine Gelegenheit, deinen Körper und deine Begeisterung wieder aufzubauen.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">13. Bewusste Ernährung</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Eine Ernährung auf Basis echter Lebensmittel — Gemüse, Obst, Hülsenfrüchte, Vollkorngetreide und native Öle — ist die beste natürliche ergogene Hilfe. Reduziere industriellen Zucker: weniger Glukosespitzen, mehr energetische und emotionale Stabilität.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">14. Wettkampftempo: Vertrauen trainieren</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Trainiere einmal pro Woche das Marathontempo. Beginne mit 5 km und steigere dich auf 12–15 km. Du trainierst nicht nur den Körper: Du trainierst die Sicherheit zu wissen, dass du dieses Tempo halten kannst.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">15. Schuhe: Vertrauen unter den Füßen</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Die Schuhe sollten eine Erweiterung deines Körpers sein. Sie werden niemals am Marathontag das erste Mal getragen. Verwende sie während der gesamten Vorbereitung im Wettkampftempo-Training: Auch Vertrauen wird trainiert.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <h3 class="text-xl font-bold text-indigo-700 mb-3">16. Der Marathontag: Wissenschaft und Emotion</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Frühstücke das Erprobte: Kamillentee mit Honig, Weißbrot mit Butter und Honig und eine reife Banane, drei Stunden vorher. Ein lockerer Trab, progressives Aufwärmen und ruhiges Atmen. Und dann, an der Startlinie, wirst du verstehen, dass sich alles gelohnt hat.
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-8 bg-gradient-to-r from-amber-50 to-yellow-50 p-8 rounded-xl border-2 border-amber-300">
+            <h3 class="text-2xl font-bold text-amber-900 mb-4 text-center">Epilog</h3>
+            <p class="text-gray-700 leading-relaxed text-center">
+                Diese Überlegungen entstammen einem dem Leichtathletik gewidmeten Leben und dem Glück, Erfahrungen mit großartigen Athleten wie Waldemar Cierpinski, Andrés Espinosa oder Julio Rey geteilt zu haben. Von ihnen lernte ich, dass der Marathon ein physiologisches und emotionales Kunstwerk ist: Präzision, Bescheidenheit und Leidenschaft.
+            </p>
+            <p class="text-gray-700 leading-relaxed text-center mt-4 font-semibold">
+                Wenn dieser Text dich bei deiner Vorbereitung begleitet, ist das Ziel bereits erreicht.
+            </p>
+            <p class="text-center text-xl font-bold text-indigo-700 mt-6">
+                Manolo "El Campanero"
+            </p>
+        </div>
+    </div>
+</div>
+		<div id="content-plan" class="hidden">
             <div class="bg-white rounded-2xl shadow-xl p-8">
                 <h2 class="text-2xl font-bold mb-6">Trainingsplan/Woche</h2>
                 <div class="grid md:grid-cols-2 gap-4 mb-6">
@@ -272,7 +420,7 @@
             var html = '<div class="space-y-4"><h3 class="text-xl font-bold mb-4">Dein personalisierter Plan:</h3>';
             
             if (currentPlan === '10k') {
-                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Dienstagt</div><div class="text-xl font-bold">Qualitätstraining</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">40-50 Minuten</div></div>';
+                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Dienstag</div><div class="text-xl font-bold">Qualitätstraining</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">40-50 Minuten</div></div>';
                 html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Donnerstag</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">40-60 Minuten</div></div>';
                 html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Samstag</div><div class="text-xl font-bold">Intensives Training</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">40-50 Minuten</div></div>';
                 html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sonntag</div><div class="text-xl font-bold">Langer Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">80-90 Minuten</div></div>';
