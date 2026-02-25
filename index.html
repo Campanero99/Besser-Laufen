@@ -261,8 +261,21 @@
         var currentZiel = '10k';
         var currentPlan = '10k';
         var savedHF = null;
-
-        
+  function changeTab(tab) {
+            document.getElementById('content-hf').className = 'hidden';
+            document.getElementById('content-zeiten').className = 'hidden';
+            document.getElementById('content-tempos').className = 'hidden';
+            document.getElementById('content-plan').className = 'hidden';
+            document.getElementById('content-' + tab).className = '';
+            
+            document.getElementById('tab-hf').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
+            document.getElementById('tab-zeiten').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
+            document.getElementById('tab-tempos').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
+            document.getElementById('tab-plan').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
+            document.getElementById('tab-' + tab).className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-active';
+            
+            if (tab === 'plan') updatePlan();
+        }
 
         function setZiel(z) {
             currentZiel = z;
