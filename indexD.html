@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Besser Laufen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .tab-active { background: rgb(79 70 229); color: white; }
+        .tab-inactive { background: rgb(243 244 246); color: rgb(75 85 99); }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+    <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-6">
+            <h1 class="text-4xl font-bold text-gray-800 text-center">Besser Laufen</h1>
+            <p class="text-center text-gray-600 text-lg">Professionelles Lauftraining</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="bg-white rounded-2xl shadow-xl mb-6 p-2">
+            <div class="flex gap-2 flex-wrap">
+                <button onclick="changeTab('hf')" id="tab-hf" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-active">HF</button>
+                <button onclick="changeTab('zeiten')" id="tab-zeiten" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Zeiten</button>
+                <button onclick="changeTab('tempos')" id="tab-tempos" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Tempos</button>
+                <button onclick="changeTab('plan')" id="tab-plan" class="flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive">Plan</button>
+            </div>
+        </div>
+
+        <!-- HF Content -->
+        <div id="content-hf">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-2xl font-bold mb-6">HF-Zonen Rechner</h2>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Maximale HF</label>
+                        <input type="number" id="hfMax" placeholder="z.B. 185" class="w-full px-4 py-3 border-2 rounded-xl">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Alter (optional)</label>
+                        <input type="number" id="alter" placeholder="z.B. 35" class="w-full px-4 py-3 border-2 rounded-xl">
+                    </div>
+                </div>
+                <div id="hfResult"></div>
+            </div>
+        </div>
+
+        <!-- Zeiten Content -->
+        <div id="content-zeiten" class="hidden">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-2xl font-bold mb-6">Zeitenprognose</h2>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h3 class="font-bold mb-4">Deine 10K Zeit</h3>
+                        <input type="number" id="min10k" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
+                        <input type="number" id="sek10k" placeholder="Sekunden" class="w-full px-4 py-3 border-2 rounded-xl">
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-4">Oder Marathon Zeit</h3>
+                        <input type="number" id="hMarathon" placeholder="Stunden" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
+                        <input type="number" id="minMarathon" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl">
+                    </div>
+                </div>
+                <div id="zeitResult"></div>
+            </div>
+        </div>
+
+        <!-- Tempos Content -->
+        <div id="content-tempos" class="hidden">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-2xl font-bold mb-6">Trainingstempos</h2>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h3 class="font-bold mb-4">Deine 10K Zeit</h3>
+                        <input type="number" id="tMin10k" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
+                        <input type="number" id="tSek10k" placeholder="Sekunden" class="w-full px-4 py-3 border-2 rounded-xl">
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-4">Oder Marathon Zeit</h3>
+                        <input type="number" id="tHMarathon" placeholder="Stunden" class="w-full px-4 py-3 border-2 rounded-xl mb-2">
+                        <input type="number" id="tMinMarathon" placeholder="Minuten" class="w-full px-4 py-3 border-2 rounded-xl">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <button onclick="setZiel('10k')" id="ziel10k" class="px-6 py-3 bg-indigo-600 text-white rounded-xl mr-2">10K</button>
+                    <button onclick="setZiel('marathon')" id="zielMarathon" class="px-6 py-3 bg-gray-200 rounded-xl">Marathon</button>
+                </div>
+                <div id="tempoResult"></div>
+            </div>
+        </div>
+
+        <!-- Plan Content -->
+        <div id="content-plan" class="hidden">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-2xl font-bold mb-6">Trainingsplan/Woche</h2>
+                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                    <button onclick="setPlan('10k')" id="plan10k" class="p-6 bg-indigo-600 text-white rounded-xl">
+                        <div class="text-xl font-bold">10K / Halbmarathon</div>
+                        <div class="text-sm">4 Tage pro Woche</div>
+                    </button>
+                    <button onclick="setPlan('marathon')" id="planMarathon" class="p-6 bg-gray-200 rounded-xl">
+                        <div class="text-xl font-bold">Marathon</div>
+                        <div class="text-sm">5 Tage pro Woche</div>
+                    </button>
+                </div>
+                <div id="planResult"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var currentZiel = '10k';
+        var currentPlan = '10k';
+        var savedHF = null;
+
+        function changeTab(tab) {
+            document.getElementById('content-hf').className = 'hidden';
+            document.getElementById('content-zeiten').className = 'hidden';
+            document.getElementById('content-tempos').className = 'hidden';
+            document.getElementById('content-plan').className = 'hidden';
+            document.getElementById('content-' + tab).className = '';
+            
+            document.getElementById('tab-hf').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
+            document.getElementById('tab-zeiten').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
+            document.getElementById('tab-tempos').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
+            document.getElementById('tab-plan').className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-inactive';
+            document.getElementById('tab-' + tab).className = 'flex-1 min-w-[100px] py-3 px-4 rounded-xl font-semibold tab-active';
+            
+            if (tab === 'plan') updatePlan();
+        }
+
+        function setZiel(z) {
+            currentZiel = z;
+            if (z === '10k') {
+                document.getElementById('ziel10k').className = 'px-6 py-3 bg-indigo-600 text-white rounded-xl mr-2';
+                document.getElementById('zielMarathon').className = 'px-6 py-3 bg-gray-200 rounded-xl';
+            } else {
+                document.getElementById('zielMarathon').className = 'px-6 py-3 bg-indigo-600 text-white rounded-xl';
+                document.getElementById('ziel10k').className = 'px-6 py-3 bg-gray-200 rounded-xl mr-2';
+            }
+            calcTempos();
+        }
+
+        function setPlan(p) {
+            currentPlan = p;
+            if (p === '10k') {
+                document.getElementById('plan10k').className = 'p-6 bg-indigo-600 text-white rounded-xl';
+                document.getElementById('planMarathon').className = 'p-6 bg-gray-200 rounded-xl';
+            } else {
+                document.getElementById('planMarathon').className = 'p-6 bg-indigo-600 text-white rounded-xl';
+                document.getElementById('plan10k').className = 'p-6 bg-gray-200 rounded-xl';
+            }
+            updatePlan();
+        }
+
+        function calcHF() {
+            var hf = parseInt(document.getElementById('hfMax').value);
+            savedHF = hf;
+            if (!hf || hf < 100 || hf > 220) {
+                document.getElementById('hfResult').innerHTML = '';
+                return;
+            }
+            
+            var html = '<div class="space-y-3">';
+            html += '<div class="bg-green-100 p-4 rounded-xl"><div class="font-bold">Erholung (&lt;67%)</div><div class="text-2xl">&lt; ' + Math.round(hf*0.67) + ' Bpm</div></div>';
+            html += '<div class="bg-blue-100 p-4 rounded-xl"><div class="font-bold">Zone 1 (68-72%)</div><div class="text-2xl">' + Math.round(hf*0.68) + '-' + Math.round(hf*0.72) + ' Bpm</div></div>';
+            html += '<div class="bg-cyan-100 p-4 rounded-xl"><div class="font-bold">Zone 2 (77-79%)</div><div class="text-2xl">' + Math.round(hf*0.77) + '-' + Math.round(hf*0.79) + ' Bpm</div></div>';
+            html += '<div class="bg-orange-100 p-4 rounded-xl"><div class="font-bold">Zone 3 (80-84%)</div><div class="text-2xl">' + Math.round(hf*0.80) + '-' + Math.round(hf*0.84) + ' Bpm</div></div>';
+            html += '<div class="bg-red-100 p-4 rounded-xl"><div class="font-bold">Zone 4 (85-88%)</div><div class="text-2xl">' + Math.round(hf*0.85) + '-' + Math.round(hf*0.88) + ' Bpm</div></div>';
+            html += '<div class="bg-purple-100 p-4 rounded-xl"><div class="font-bold">Wettkampf (89-92%)</div><div class="text-2xl">' + Math.round(hf*0.89) + '-' + Math.round(hf*0.92) + ' Bpm</div></div>';
+            html += '</div>';
+            document.getElementById('hfResult').innerHTML = html;
+        }
+
+        function formatTime(sec) {
+            var h = Math.floor(sec / 3600);
+            var m = Math.floor((sec % 3600) / 60);
+            var s = Math.round(sec % 60);
+            if (h > 0) return h + ':' + (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+            return m + ':' + (s < 10 ? '0' : '') + s;
+        }
+
+        function formatPace(sec) {
+            var m = Math.floor(sec / 60);
+            var s = Math.round(sec % 60);
+            return m + ':' + (s < 10 ? '0' : '') + s;
+        }
+
+        function calcZeiten() {
+            var m10 = parseInt(document.getElementById('min10k').value);
+            var s10 = parseInt(document.getElementById('sek10k').value) || 0;
+            var hM = parseInt(document.getElementById('hMarathon').value);
+            var mM = parseInt(document.getElementById('minMarathon').value) || 0;
+            
+            var times = {};
+            if (m10) {
+                var t10 = m10 * 60 + s10;
+                times.t10 = t10;
+                times.t21 = Math.round(t10 * 2.182);
+                times.t42 = Math.round(t10 * 4.7);
+                document.getElementById('hMarathon').value = '';
+                document.getElementById('minMarathon').value = '';
+            } else if (hM || mM) {
+                var t42 = (hM || 0) * 3600 + mM * 60;
+                times.t42 = t42;
+                times.t21 = Math.round(t42 / 2.154);
+                times.t10 = Math.round(t42 / 4.7);
+                document.getElementById('min10k').value = '';
+                document.getElementById('sek10k').value = '';
+            } else {
+                document.getElementById('zeitResult').innerHTML = '';
+                return;
+            }
+            
+            var html = '<div class="grid md:grid-cols-3 gap-4">';
+            html += '<div class="bg-green-500 text-white p-6 rounded-xl"><div class="text-sm mb-2">10 Kilometer</div><div class="text-3xl font-bold">' + formatTime(times.t10) + '</div><div class="mt-2">Tempo: ' + formatPace(times.t10/10) + '/km</div></div>';
+            html += '<div class="bg-blue-500 text-white p-6 rounded-xl"><div class="text-sm mb-2">Halbmarathon</div><div class="text-3xl font-bold">' + formatTime(times.t21) + '</div><div class="mt-2">Tempo: ' + formatPace(times.t21/21.097) + '/km</div></div>';
+            html += '<div class="bg-purple-500 text-white p-6 rounded-xl"><div class="text-sm mb-2">Marathon</div><div class="text-3xl font-bold">' + formatTime(times.t42) + '</div><div class="mt-2">Tempo: ' + formatPace(times.t42/42.195) + '/km</div></div>';
+            html += '</div>';
+            document.getElementById('zeitResult').innerHTML = html;
+        }
+
+        function calcTempos() {
+            var m10 = parseInt(document.getElementById('tMin10k').value);
+            var s10 = parseInt(document.getElementById('tSek10k').value) || 0;
+            var hM = parseInt(document.getElementById('tHMarathon').value);
+            var mM = parseInt(document.getElementById('tMinMarathon').value) || 0;
+            
+            var pM, p10;
+            if (m10) {
+                var t10 = m10 * 60 + s10;
+                var t42 = Math.round(t10 * 4.7);
+                pM = t42 / 42.195;
+                p10 = t10 / 10;
+                document.getElementById('tHMarathon').value = '';
+                document.getElementById('tMinMarathon').value = '';
+            } else if (hM || mM) {
+                var t42 = (hM || 0) * 3600 + mM * 60;
+                var t10 = Math.round(t42 / 4.7);
+                pM = t42 / 42.195;
+                p10 = t10 / 10;
+                document.getElementById('tMin10k').value = '';
+                document.getElementById('tSek10k').value = '';
+            } else {
+                document.getElementById('tempoResult').innerHTML = '';
+                return;
+            }
+            
+            var html = '<div class="space-y-4">';
+            html += '<div class="bg-green-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Lockerer Lauf (Aerobe Basis)</div><div class="text-2xl font-bold">' + formatPace(pM+60) + ' - ' + formatPace(pM+75) + ' /km</div></div>';
+            html += '<div class="bg-orange-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Renntempo</div><div class="text-2xl font-bold">' + formatPace(currentZiel==='10k'?p10:pM) + ' /km</div></div>';
+            var intMin = (currentZiel==='10k'?p10:pM)+15;
+            var intMax = (currentZiel==='10k'?p10:pM)+25;
+            html += '<div class="bg-red-100 p-5 rounded-xl"><div class="font-bold text-lg mb-2">Intensiver Lauf</div><div class="text-2xl font-bold">' + formatPace(intMin) + ' - ' + formatPace(intMax) + ' /km</div></div>';
+            html += '</div>';
+            document.getElementById('tempoResult').innerHTML = html;
+        }
+
+        function updatePlan() {
+            if (!savedHF) {
+                document.getElementById('planResult').innerHTML = '<div class="bg-yellow-100 p-4 rounded-xl border-2 border-yellow-400"><p class="font-semibold">⚠️ Bitte zuerst HF-Max in der ersten Pestaña eingeben</p></div>';
+                return;
+            }
+            
+            var hf = savedHF;
+            var z1 = Math.round(hf * 0.70) + '-' + Math.round(hf * 0.73);
+            var z2 = Math.round(hf * 0.77);
+            var z3 = Math.round(hf * 0.82) + '-' + Math.round(hf * 0.84);
+            var z4 = Math.round(hf * 0.88) + '-' + Math.round(hf * 0.92);
+            
+            var html = '<div class="space-y-4"><h3 class="text-xl font-bold mb-4">Dein personalisierter Plan:</h3>';
+            
+            if (currentPlan === '10k') {
+                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Dienstagtes</div><div class="text-xl font-bold">Qualitätstraining</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">40-50 Minuten</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Donnerstag</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">40-60 Minuten</div></div>';
+                html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Samstag</div><div class="text-xl font-bold">Intensives Training</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">40-50 Minuten</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sonntag</div><div class="text-xl font-bold">Langer Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">80-90 Minuten</div></div>';
+            } else {
+                html += '<div class="bg-blue-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Dienstag</div><div class="text-xl font-bold">Qualitätstraining</div><div class="text-lg mt-2">' + z3 + ' ppm (82-84%)</div><div class="mt-1">50-60 Minuten</div></div>';
+                html += '<div class="bg-yellow-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Mittwoch</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">~' + z2 + ' ppm (77%)</div><div class="mt-1">40-50 Minuten</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Donnerstag</div><div class="text-xl font-bold">Leichter Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">45-60 Minuten</div></div>';
+                html += '<div class="bg-red-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Samstag</div><div class="text-xl font-bold">Intensives Training</div><div class="text-lg mt-2">' + z4 + ' ppm (88-92%)</div><div class="mt-1">60-75 Minuten</div></div>';
+                html += '<div class="bg-green-500 text-white p-5 rounded-xl"><div class="text-sm mb-1">Sonntag</div><div class="text-xl font-bold">Langer Lauf</div><div class="text-lg mt-2">' + z1 + ' ppm (70-73%)</div><div class="mt-1">120-170 miMinuten</div></div>';
+            }
+            
+            html += '</div>';
+            document.getElementById('planResult').innerHTML = html;
+        }
+
+        document.getElementById('hfMax').addEventListener('input', calcHF);
+        document.getElementById('min10k').addEventListener('input', calcZeiten);
+        document.getElementById('sek10k').addEventListener('input', calcZeiten);
+        document.getElementById('hMarathon').addEventListener('input', calcZeiten);
+        document.getElementById('minMarathon').addEventListener('input', calcZeiten);
+        document.getElementById('tMin10k').addEventListener('input', calcTempos);
+        document.getElementById('tSek10k').addEventListener('input', calcTempos);
+        document.getElementById('tHMarathon').addEventListener('input', calcTempos);
+        document.getElementById('tMinMarathon').addEventListener('input', calcTempos);
+    </script>
+</body>
+</html>
