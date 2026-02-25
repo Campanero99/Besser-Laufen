@@ -9,13 +9,13 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "Läufer-in.png",
+      "src": "icon.png",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "Läufer-in.png",
+      "src": "icon.png",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "maskable"
@@ -29,4 +29,4 @@
 tu-repositorio-github/
 ├── index.html
 ├── manifest.json
-└── Läufer-in.png
+└── icon.png
