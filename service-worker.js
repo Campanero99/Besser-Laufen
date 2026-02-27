@@ -1,4 +1,4 @@
-const CACHE_NAME = 'besser-laufen-v1.0.3';  // Cambia el número cada vez que actualices
+const CACHE_NAME = 'besser-laufen-v3.0.5';  // Cambia el número cada vez que actualices
 const urlsToCache = [
   '/',
   '/index.html',
