@@ -265,11 +265,11 @@
   return (
     <div key={z.label} className={`bg-gradient-to-r ${c1} ${c2} p-3 rounded-xl border-2 ${c3}`}>
       <div className="flex justify-between items-center">
-        <div className="flex-1">
-          <p className={`font-bold text-sm ${c4}`}>{z.label}</p>
-          <p className={`text-xs ${c5}`}>{z.sub}</p>
-        </div>
- <p className={`text-xl font-bold ${c4} ml-4 whitespace-nowrap`}>{z.range}</p>
+     <div className="flex-1 min-w-0">
+  <p className={`font-bold text-sm ${c4}`}>{z.label}</p>
+  <p className={`text-xs ${c5}`}>{z.sub}</p>
+</div>
+<p className={`text-xl font-bold ${c4} ml-2 whitespace-nowrap flex-shrink-0`}>{z.range}</p>
       </div>
     </div>
   );
