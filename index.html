@@ -79,7 +79,7 @@
         const hf = parseInt(hfMax);
         if (!hf || hf < 100 || hf > 220) return null;
         return {
-          erholung: { min: Math.round(hf * 0.50), max: Math.round(hf * 0.67) },
+          erholung: { min: Math.round(hf * 0.50), max: Math.round(hf * 0.68) },
           zone1: { min: Math.round(hf * 0.68), max: Math.round(hf * 0.72) },
           zone2: { min: Math.round(hf * 0.77), max: Math.round(hf * 0.79) },
           zone3: { min: Math.round(hf * 0.80), max: Math.round(hf * 0.84) },
@@ -254,7 +254,7 @@
                   <div className="space-y-3">
                     <h3 className="text-xl font-bold text-gray-800 mb-4">Deine Trainingszonen:</h3>
  {[
-  { label: 'Erholung', percent: '(<67%)', range: `< ${hfZonen.erholung.max} ppm`, colors: 'from-green-50 to-green-100 border-green-300 text-green-800' },
+  { label: 'Erholung', percent: '(<68%)', range: `< ${hfZonen.erholung.max} ppm`, colors: 'from-green-50 to-green-100 border-green-300 text-green-800' },
   { label: 'Zone 1', percent: '(68-72%)', range: `${hfZonen.zone1.min}-${hfZonen.zone1.max} ppm`, colors: 'from-blue-50 to-blue-100 border-blue-300 text-blue-800' },
   { label: 'Zone 2', percent: '(77-79%)', range: `${hfZonen.zone2.min}-${hfZonen.zone2.max} ppm`, colors: 'from-cyan-50 to-cyan-100 border-cyan-300 text-cyan-800' },
   { label: 'Zone 3', percent: '(80-84%)', range: `${hfZonen.zone3.min}-${hfZonen.zone3.max} Bpm`, colors: 'from-orange-50 to-orange-100 border-orange-300 text-orange-800' },
@@ -634,7 +634,7 @@
                       Wenn diese Zeilen dich bei deiner Vorbereitung begleiten, ist das Ziel bereits erreicht.
                     </p>
                     <p className="text-center text-lg md:text-xl font-bold text-indigo-700 mt-4 md:mt-6">
-                      Manolo „El Campanero"
+                      Manolo
                     </p>
                   </div>
                 </div>
